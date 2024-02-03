@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx ts-node ./src/helloworld.ts"
+    "dev": "npx ts-node ./src/wouldyourather.ts"
   },
   "devDependencies": {
     "@types/prompt-sync": "^4.2.3",
