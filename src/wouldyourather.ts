@@ -1,4 +1,5 @@
-const prompt = require("prompt-sync")({sigint:true});
+import prompt_sync from "prompt-sync";
+const promptsync = prompt_sync({sigint:true});
 
 const questions: string[] = [
     "would you rather have 1 million dollars(type 1) or have never ending money(type 2)?",
@@ -22,7 +23,7 @@ const rightAnswer: number[] = [1,0,1];
 
 let goodAnswer: number =0; // Can change
 for (let i=0;i<questions.length;i++){
-    const answer:string = prompt(questions[i])??"";
+    const answer:string = promptsync(questions[i])??"";
     if (answer == "1"){
         console.log(answerType1[i]);
     } else if (answer == "2"){
