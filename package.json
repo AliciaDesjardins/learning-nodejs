@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx ts-node ./src/addition.ts"
+    "dev": "npx ts-node ./src/game1.ts"
   },
   "devDependencies": {
     "@types/prompt-sync": "^4.2.3",
