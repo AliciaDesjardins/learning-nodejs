@@ -66,3 +66,26 @@ function minMax(minValue:number, maxValue:number): number {
     const maximumBoundary: number = maxValue-minValue;
     return  Math.round(minValue + Math.random()*maximumBoundary); // Value between 5 and 15
 }
+
+function promptAttack():number {
+    let actionNumber:number = 0;
+    while(actionNumber ===0 || actionNumber>4) {
+        console.log("What type of attack do you want to do?");
+        console.log("1. Addition");
+        console.log("2. Substraction");
+        console.log("3. Multiplication");
+        console.log("4. Division");
+        actionNumber = Number(promptsync("Choose an action: ")??"");
+    }
+    return actionNumber;
+}
+
+// Ask addition between 0-100.
+// Example: 100 + 34
+function askAddition():boolean {
+    const leftSide = minMax(0,100);
+    const rightSide = minMax(0,100);
+    const userResponse = Number(promptsync("What is " + leftSide + "+" + rightSide + "?")??"");
+    const isGoodValue = leftSide+rightSide===userResponse;
+    return isGoodValue;
+}
