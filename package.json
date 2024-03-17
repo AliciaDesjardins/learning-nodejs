@@ -1,9 +1,11 @@
 {
   "scripts": {
-    "dev": "npx ts-node ./src/game1.ts"
+    "dev": "npx ts-node ./src/game1.ts",
+    "prettier": "npx prettier . --write"
   },
   "devDependencies": {
     "@types/prompt-sync": "^4.2.3",
+    "prettier": "^3.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
