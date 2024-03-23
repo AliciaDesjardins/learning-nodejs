@@ -5,6 +5,10 @@ const promptsync = prompt_sync({ sigint: true });
 const player1Name: string = promptsync("Player 1 name: ") ?? "";
 const player2Name: string = promptsync("Player 2 name: ") ?? "";
 
+ // Recharge Memory
+const player1Actions: boolean[]  = [false,false,false,false];
+const player2Actions: boolean[]  = [false,false,false,false];
+
 // Start game
 let p1Health: number = minMax(48, 52);
 let p2Health: number = minMax(48, 52);
@@ -28,7 +32,6 @@ while (p1Health > 0 && p2Health > 0) {
     console.log("1. Heal");
     console.log("2. Attack");
     const actionNumber: number = Number(promptsync("Choose an action: ") ?? "");
-
     if (actionNumber == 1) {
         const actionType: number = minMax(1, 4); // Random between 1 and 4
         let point = 0;
@@ -67,7 +70,12 @@ while (p1Health > 0 && p2Health > 0) {
             p2Health = p2Health + point;
         }
     } else if (actionNumber == 2) {
-        const typeAttack: number = promptAttack();
+        let typeAttack: number;
+        if (isP1Turn) {
+            typeAttack = promptAttack(player1Actions);
+        } else {
+            typeAttack = promptAttack(player2Actions);
+        }
         if(typeAttack==1){
             const userGoodAnswer = askAddition();
             if(userGoodAnswer == true){
@@ -94,6 +102,11 @@ while (p1Health > 0 && p2Health > 0) {
                 } else {
                     p1Health = p1Health - point;
                 }
+                if (isP1Turn) {
+                    player1Actions[0]=false;
+                } else {
+                    player2Actions[0]=false;
+                }
             }else{
                 console.log("You attacked and missed! The other player did not get hit.");
             }
@@ -107,6 +120,13 @@ while (p1Health > 0 && p2Health > 0) {
                     p2Health = p2Health - point;
                 } else {
                     p1Health = p1Health - point;
+                }
+                if (isP1Turn) {
+                    player1Actions[0]=false;
+                    player1Actions[1]=false;
+                } else {
+                    player2Actions[0]=false;
+                    player2Actions[1]=false;
                 }
             }
             else {
@@ -123,6 +143,17 @@ while (p1Health > 0 && p2Health > 0) {
                     p2Health = p2Health - point;
                 } else {
                     p1Health = p1Health - point;
+                }
+                if (isP1Turn) {
+                    player1Actions[0]=false;
+                    player1Actions[1]=false;
+                    player1Actions[2]=false;
+                    player1Actions[3]=false;
+                } else {
+                    player2Actions[0]=false;
+                    player2Actions[1]=false;
+                    player2Actions[2]=false;
+                    player2Actions[3]=false;
                 }
             }
             else {
@@ -151,16 +182,26 @@ function minMax(minValue: number, maxValue: number): number {
     return Math.round(minValue + Math.random() * maximumBoundary); // Value between 5 and 15
 }
 
-function promptAttack(): number {
+// Ask the user what kind of attack he wants to do
+function promptAttack(listOfActions: boolean[]): number {
     let actionNumber: number = 0;
-    while (actionNumber === 0 || actionNumber > 4) {
+    while (actionNumber === 0 || actionNumber > 4 || listOfActions[actionNumber-1]==true) {
         console.log("What type of attack do you want to do?");
-        console.log("1. Addition");
-        console.log("2. Substraction");
-        console.log("3. Multiplication");
-        console.log("4. Division");
+        if(listOfActions[0]==false){
+            console.log("1. Addition");
+        }
+        if(listOfActions[1]==false){
+            console.log("2. Substraction");
+        }
+        if(listOfActions[2]==false){
+            console.log("3. Multiplication");
+        }
+        if(listOfActions[3]==false){
+            console.log("4. Division");
+        }
         actionNumber = Number(promptsync("Choose an action: ") ?? "");
     }
+    listOfActions[actionNumber-1]=true;
     return actionNumber;
 }
 
