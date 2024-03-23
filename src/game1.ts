@@ -30,9 +30,37 @@ while (p1Health > 0 && p2Health > 0) {
     const actionNumber: number = Number(promptsync("Choose an action: ") ?? "");
 
     if (actionNumber == 1) {
-        const point = minMax(5, 15);
-        console.log("You are healing " + point + " points");
-
+        const actionType: number = minMax(1, 4); // Random between 1 and 4
+        let point = 0;
+        if(actionType==1){
+            const result = askAddition();
+            if(result==true){
+                point=minMax(5,10);
+            } 
+        }
+        else if(actionType==2){
+            const result=askSubstraction();
+            if(result==true){
+                point=minMax(10,15)
+            }
+        }
+        else if(actionType==3){
+            const result=askMultiplication();
+            if(result==true){
+                point=minMax(10,20)
+            }
+        }
+        else if(actionType==4){
+            const result=askDivision();
+            if(result==true){
+                point=minMax(12,22)
+            }
+        }
+        if(point==0){
+            console.log("You fumbled, no healing for you!");
+        } else{
+            console.log("You are healing " + point + " points");
+        }
         if (isP1Turn) {
             p1Health = p1Health + point;
         } else {
@@ -70,10 +98,36 @@ while (p1Health > 0 && p2Health > 0) {
                 console.log("You attacked and missed! The other player did not get hit.");
             }
         } else if (typeAttack==3){
-            // Todo
+            const userGoodAnswer = askMultiplication();
+            if(userGoodAnswer == true){
+                const point = minMax(10, 20);
+
+                console.log("You attacked the opponent with " + point + " points");
+                if (isP1Turn) {
+                    p2Health = p2Health - point;
+                } else {
+                    p1Health = p1Health - point;
+                }
+            }
+            else {
+                console.log("You attacked and missed! The other player did not get hit.");
+            }
         }
         else if (typeAttack==4){
-            // Todo
+            const userGoodAnswer = askDivision();
+            if(userGoodAnswer == true){
+                const point = minMax(15, 25);
+
+                console.log("You attacked the opponent with " + point + " points");
+                if (isP1Turn) {
+                    p2Health = p2Health - point;
+                } else {
+                    p1Health = p1Health - point;
+                }
+            }
+            else {
+                console.log("You attacked and missed! The other player did not get hit.");
+            }
         }
        
     } else {
@@ -119,6 +173,9 @@ function askAddition(): boolean {
         promptsync("What is " + leftSide + "+" + rightSide + "?") ?? "",
     );
     const isGoodValue = leftSide + rightSide == userResponse;
+    if(isGoodValue==false){
+        console.log("Unfortunately, the good answer was: "+ (leftSide +rightSide) );
+    }
     return isGoodValue;
 }
 
@@ -129,12 +186,24 @@ function askSubstraction(): boolean {
         promptsync("What is " + leftSide + "-" + rightSide + "?") ?? "",
     );
     const isGoodValue = leftSide - rightSide == userResponse;
-    return isGoodValue;
+    if(isGoodValue==false){
+         console.log("Unfortunately, the good answer was: "+ (leftSide -rightSide) );
+     } 
+     return isGoodValue;
 }
 
-function askMultiplication(): boolean {}
-
-
+function askMultiplication(): boolean {
+    const leftSide = minMax(0, 10);
+    const rightSide = minMax(0, 10);
+    const userResponse = Number(
+        promptsync("What is " + leftSide + "*" + rightSide + "?") ?? "",
+    );
+    const isGoodValue = leftSide * rightSide == userResponse;
+    if(isGoodValue==false){
+         console.log("Unfortunately, the good answer was: "+ (leftSide *rightSide) );
+    }
+    return isGoodValue;
+}
 function askDivision(): boolean {
     const result = minMax(0, 20);
     const rightSide = minMax(0, 10);
@@ -143,5 +212,8 @@ function askDivision(): boolean {
         promptsync("What is " + leftSide + "/" + rightSide + "?") ?? "",
     );
     const isGoodValue = result == userResponse;
+    if(isGoodValue==false){
+        console.log("Unfortunately, the good answer was: "+ (leftSide /rightSide) );
+    }
     return isGoodValue;
 }
