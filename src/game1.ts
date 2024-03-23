@@ -38,25 +38,25 @@ while (p1Health > 0 && p2Health > 0) {
         if(actionType==1){
             const result = askAddition();
             if(result==true){
-                point=minMax(5,10);
+                point=minMax(10,15);
             } 
         }
         else if(actionType==2){
             const result=askSubstraction();
             if(result==true){
-                point=minMax(10,15)
+                point=minMax(15,20)
             }
         }
         else if(actionType==3){
             const result=askMultiplication();
             if(result==true){
-                point=minMax(10,20)
+                point=minMax(20,25)
             }
         }
         else if(actionType==4){
             const result=askDivision();
             if(result==true){
-                point=minMax(12,22)
+                point=minMax(20,30)
             }
         }
         if(point==0){
