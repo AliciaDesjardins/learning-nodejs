@@ -9,3 +9,10 @@ NodeJS Scripts to learn TypeScript
 5. Attack hits the other player with a random amount of point depending of how hard is the question
 6. The game tracks your attack type. You can do each attack once until you recharge the attack type
 7. To recharge, you must choose a harder attack type 
+
+## Game 1 Future Features
+
+* Perimeter and area questions
+* Visualization of the shape for perimeter and area
+* If attack is completed within 10 seconds (0 to 10 seconds) the player receive a bonus attack of random between 2-5 points.
+* Add a nicer UI (user interface) that show a health bar
