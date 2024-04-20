@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx ts-node ./src/game1.ts",
+    "dev": "npx ts-node ./src/loop.ts",
     "prettier": "npx prettier . --write"
   },
   "devDependencies": {
