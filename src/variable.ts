@@ -1,16 +1,77 @@
-const x = [1,2,3];
-const y = ["a","b"];
-const xx: number[] = [1,2,3];
-const a:string='alicia';
-const xxx: string[] =['5','9','36','40',a];
-console.log(xxx);
-xxx.push("Patrick");
-xxx.push("Jacob");
-// xxx[4]="Patrick";
-// xxx[8]="Jacob"
-console.log(xxx);
-xxx.pop();
-console.log(xxx);
+let x=1;
+let y=9;
+let r4=x+y;
 
-const xxxxx:number[] =[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-console.log(xxxxx)
+print(r4);
+print(x+y);
+
+function print(r:number): void {
+    console.log(r);
+}
+function printstr(r:string): void {
+    console.log(r);
+}
+
+
+function alicia(first:string,last:string):string{
+    return first + " " + last;
+}
+
+printstr(alicia('patrick', 'desjardins'));
+
+const firstlast:string = alicia('patrick', 'desjardins');
+printstr(firstlast);
+
+
+function len(first:string,last:string):number{
+    return first.length + last.length;
+}
+
+print(len("a","bc"));
+
+
+
+
+function f1(p1:number):number {
+    return p1;
+}
+
+function f2(p1:number):number {
+    return p1;
+}
+
+function f3(p1:number):number {
+    return p1;
+}
+
+console.log(f1(1));
+
+console.log(f1(f2(2)));
+
+function perimeter(side1:number, side2:number): number {
+    return side1*2+side2*2;
+}
+
+console.log(perimeter(10,2));
+console.log("area is:" + area(10,2))
+function area(side1:number, side2:number): number {
+    return side1*side2;
+}
+
+
+// 
+//(c × 9/5) + 32 = return
+function convertCelciusToFarenheit(c:number):number{
+    return (c*9/5)+32;
+}
+
+console.log(convertCelciusToFarenheit(-17.75));
+
+//(F − 32) × 5/9 = 0°C
+function convertFarenheitToCelcius(f:number):number {
+    return (f-32) * 5/9; 
+}
+
+console.log(convertFarenheitToCelcius(0));
+console.log(convertCelciusToFarenheit(-17.7777777777778));
+//0.00000000000000426325641456060
