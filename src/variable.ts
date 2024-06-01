@@ -75,3 +75,5 @@ function convertFarenheitToCelcius(f:number):number {
 console.log(convertFarenheitToCelcius(0));
 console.log(convertCelciusToFarenheit(-17.7777777777778));
 //0.00000000000000426325641456060
+
+console.log(convertCelciusToFarenheit(35));
