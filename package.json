@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx ts-node ./src/loop2.ts",
+    "dev": "npx ts-node ./src/logical.ts",
     "prettier": "npx prettier . --write"
   },
   "devDependencies": {
