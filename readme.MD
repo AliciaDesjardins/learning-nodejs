@@ -16,3 +16,9 @@ NodeJS Scripts to learn TypeScript
 * Visualization of the shape for perimeter and area
 * If attack is completed within 10 seconds (0 to 10 seconds) the player receive a bonus attack of random between 2-5 points.
 * Add a nicer UI (user interface) that show a health bar
+
+# Other Files
+logical: Learn about binary operation
+Loop: Learn about loop
+Loop2: Learn about loop and array
+Variable: Learn about variable
