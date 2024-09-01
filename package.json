@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx ts-node ./src/rockpaperscissor.ts",
+    "dev": "npx ts-node ./src/funct1.ts",
     "prettier": "npx prettier . --write"
   },
   "devDependencies": {
