@@ -9,7 +9,7 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/src/game1.ts",
+      "program": "${workspaceFolder}/src/message.ts",
       "outFiles": ["${workspaceFolder}/**/*.js"]
     }
   ]
