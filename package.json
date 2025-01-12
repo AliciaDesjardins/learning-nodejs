@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx ts-node ./src/message.ts",
+    "dev": "npx ts-node ./src/decToBinary.ts",
     "prettier": "npx prettier . --write"
   },
   "devDependencies": {
